@@ -6,6 +6,7 @@ import authRoutes from "../modules/auth/auth.routes.js";
 import commentRoutes from "../modules/comment/comment.routes.js";
 import postRoutes from "../modules/post/post.routes.js";
 import connectDB from "../config/db.js";
+import rateLimiter from "../shared/middleware/rateLimiter.js";
 
 connectDB();
 
@@ -27,6 +28,7 @@ app.use(express.json()); // Content-Type: application/json
 app.use(
   morgan(":method :url :status :res[content-length] - :response-time ms"),
 );
+app.use(rateLimiter);
 
 // Routes
 app.use("/api/auth", authRoutes);
