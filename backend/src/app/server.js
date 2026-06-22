@@ -2,6 +2,12 @@ import express from "express";
 import { env } from "../config/env.js";
 import chalk from "chalk";
 import morgan from "morgan";
+import authRoutes from "../modules/auth/auth.routes.js";
+import commentRoutes from "../modules/comment/comment.routes.js";
+import postRoutes from "../modules/post/post.routes.js";
+import connectDB from "../config/db.js";
+
+connectDB();
 
 // Init
 const app = express();
@@ -22,9 +28,10 @@ app.use(
   morgan(":method :url :status :res[content-length] - :response-time ms"),
 );
 
-app.get("/", (req, res) => {
-  res.status(200).send("Hello World");
-});
+// Routes
+app.use("/api/auth", authRoutes);
+app.use("/api/comment", commentRoutes);
+app.use("/api/post", postRoutes);
 
 // Listen
 app.listen(env.PORT, () => {
