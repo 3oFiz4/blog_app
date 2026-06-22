@@ -2,28 +2,25 @@ import express from "express";
 import { env } from "../config/env.js";
 import chalk from "chalk";
 import morgan from "morgan";
+import statusColor from "../config/morgan.js";
 import authRoutes from "../modules/auth/auth.routes.js";
 import commentRoutes from "../modules/comment/comment.routes.js";
 import postRoutes from "../modules/post/post.routes.js";
 import connectDB from "../config/db.js";
 import rateLimiter from "../shared/middleware/rateLimiter.js";
-
-connectDB();
+import cors from "cors";
 
 // Init
 const app = express();
-morgan.token("statusColor", (req, res) => {
-  const status = res.statusCode;
+morgan.token("statusColor", statusColor);
 
-  // Define colors based on HTTP status
-  if (status >= 500) return chalk.red(status); // Server Errors
-  if (status >= 400) return chalk.yellow(status); // Client Errors
-  if (status >= 300) return chalk.cyan(status); // Redirects
-  if (status >= 200) return chalk.green(status); // Success
-  return chalk.white(status);
-});
-
+connectDB();
 // Middleware
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  }),
+);
 app.use(express.json()); // Content-Type: application/json
 app.use(
   morgan(":method :url :status :res[content-length] - :response-time ms"),
