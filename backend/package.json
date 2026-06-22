@@ -1,0 +1,34 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "A blog app",
+  "keywords": [
+    "blog"
+  ],
+  "homepage": "https://github.com/3oFiz4/blog_app#readme",
+  "bugs": {
+    "url": "https://github.com/3oFiz4/blog_app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3oFiz4/blog_app.git"
+  },
+  "license": "MIT",
+  "author": "3oFiz4",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/app/server.js",
+    "start": "node src/app/server.js"
+  },
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "morgan": "^1.11.0",
+    "nodemon": "^3.1.14"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

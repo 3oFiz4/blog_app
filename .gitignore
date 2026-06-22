@@ -1,0 +1,67 @@
+
+# ==============================================================================
+# 📦 Dependencies (Never commit these, download fresh via npm install)
+# ==============================================================================
+node_modules/
+**/node_modules/
+package-lock.json
+**/package-lock.json
+
+# ==============================================================================
+# 🔑 Security / Credentials (CRITICAL: Keeps passwords & API keys secret)
+# ==============================================================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+**/.env
+**/.env*.local
+
+# ==============================================================================
+# 🏗️ Production Builds (Compiled files generated during deployment)
+# ==============================================================================
+# React build production folder
+dist/
+build/
+**/dist/
+**/build/
+
+# Next.js / alternative frontend frameworks if used
+.next/
+out/
+
+# Vite caches
+.vite/
+
+# ==============================================================================
+# 🩺 Logs and Diagnostics
+# ==============================================================================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# ==============================================================================
+# 🖥️ System & IDE Files (Keeps repo clean across different Operating Systems)
+# ==============================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDEs (VS Code, WebStorm, etc.)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
